@@ -1,7 +1,0 @@
-User entered data - aka down trees
-Park Locator Point
-Park Boundary
-Recreational Trails
-Roads
-Recreational Structures
-Golf Course

@@ -1,0 +1,32 @@
+/* Get all the water bodies from the database */
+SELECT ST_AsGeoJSON(ST_Transform(geom, 4326)) as geom, name FROM hydro_line;
+
+/* Get all the water bodies from the database*/
+SELECT ST_AsGeoJSON(ST_Transform(geom, 4326)) as geom, name FROM hydro_poly;
+
+/* Get all the park boundary geometry*/
+SELECT ST_AsGeoJSON(ST_Transform(geom, 4326)) as geom from parkboundary;
+
+/* Get Bridges Points*/
+SELECT ST_AsGeoJSON(ST_Transform(geom, 4326)) as geom, descriptio, material, type from recreation_point WHERE type = "Bridge";
+
+/* Get Trailheads Hiking */
+SELECT ST_AsGeoJSON(ST_Transform(geom, 4326)) as geom, descriptio, material, type from recreation_point WHERE type = 'Trailhead';
+
+/* Water Trailhead*/
+SELECT ST_AsGeoJSON(ST_Transform(geom, 4326)) as geom, descriptio, material, type from recreation_point WHERE type = 'Water Trailhead';
+
+/* MTB Trailhead */
+SELECT ST_AsGeoJSON(ST_Transform(geom, 4326)) as geom, descriptio, material, type from recreation_point WHERE type = 'MTB Trailhead';
+
+/* Get Bike Trails*/
+SELECT ST_AsGeoJSON(ST_Transform(geom, 4326)) as geom, name, material from recreation_trail_line WHERE design_cat ='Bike';
+
+/*Get water Trails*/
+SELECT ST_AsGeoJSON(ST_Transform(geom, 4326)) as geom, name, material from recreation_trail_line WHERE design_cat ='Water';
+
+/* Get Foot Trails*/
+SELECT ST_AsGeoJSON(ST_Transform(geom, 4326)) as geom, name, material from recreation_trail_line WHERE design_cat ='Foot';
+
+/*get road polygons*/
+SELECT ST_AsGeoJSON(ST_Transform(geom, 4326)) as geom from transportation_polygon;
