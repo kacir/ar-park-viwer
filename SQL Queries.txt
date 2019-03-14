@@ -8,7 +8,7 @@ SELECT ST_AsGeoJSON(ST_Transform(geom, 4326)) as geom, name FROM hydro_poly;
 SELECT ST_AsGeoJSON(ST_Transform(geom, 4326)) as geom from parkboundary;
 
 /* Get Bridges Points*/
-SELECT ST_AsGeoJSON(ST_Transform(geom, 4326)) as geom, descriptio, material, type from recreation_point WHERE type = "Bridge";
+SELECT ST_AsGeoJSON(ST_Transform(geom, 4326)) as geom, descriptio, material, type from recreation_point WHERE type = 'Bridge';
 
 /* Get Trailheads Hiking */
 SELECT ST_AsGeoJSON(ST_Transform(geom, 4326)) as geom, descriptio, material, type from recreation_point WHERE type = 'Trailhead';

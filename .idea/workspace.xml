@@ -1,75 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="ar-park-viwer:war exploded" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="330734f8-9f68-4c8a-b198-2888a2001fb5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data needed.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/main.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shapefiles/HYDROGRAPHY_FLOWLINE.cpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shapefiles/HYDROGRAPHY_FLOWLINE.dbf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shapefiles/HYDROGRAPHY_FLOWLINE.prj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shapefiles/HYDROGRAPHY_FLOWLINE.sbn" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shapefiles/HYDROGRAPHY_FLOWLINE.sbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shapefiles/HYDROGRAPHY_FLOWLINE.shp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shapefiles/HYDROGRAPHY_FLOWLINE.shp.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shapefiles/HYDROGRAPHY_FLOWLINE.shx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shapefiles/HYDROGRAPHY_WATER.cpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shapefiles/HYDROGRAPHY_WATER.dbf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shapefiles/HYDROGRAPHY_WATER.prj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shapefiles/HYDROGRAPHY_WATER.sbn" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shapefiles/HYDROGRAPHY_WATER.sbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shapefiles/HYDROGRAPHY_WATER.shp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shapefiles/HYDROGRAPHY_WATER.shp.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shapefiles/HYDROGRAPHY_WATER.shx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shapefiles/Park_Locator.cpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shapefiles/Park_Locator.dbf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shapefiles/Park_Locator.prj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shapefiles/Park_Locator.sbn" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shapefiles/Park_Locator.sbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shapefiles/Park_Locator.shp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shapefiles/Park_Locator.shp.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shapefiles/Park_Locator.shx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shapefiles/RECREATION_POINT.cpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shapefiles/RECREATION_POINT.dbf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shapefiles/RECREATION_POINT.prj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shapefiles/RECREATION_POINT.sbn" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shapefiles/RECREATION_POINT.sbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shapefiles/RECREATION_POINT.shp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shapefiles/RECREATION_POINT.shp.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shapefiles/RECREATION_POINT.shx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shapefiles/RECREATION_TRAIL_LINE.cpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shapefiles/RECREATION_TRAIL_LINE.dbf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shapefiles/RECREATION_TRAIL_LINE.prj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shapefiles/RECREATION_TRAIL_LINE.sbn" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shapefiles/RECREATION_TRAIL_LINE.sbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shapefiles/RECREATION_TRAIL_LINE.shp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shapefiles/RECREATION_TRAIL_LINE.shp.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shapefiles/RECREATION_TRAIL_LINE.shx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shapefiles/STRUCTURES_RECREATION.cpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shapefiles/STRUCTURES_RECREATION.dbf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shapefiles/STRUCTURES_RECREATION.prj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shapefiles/STRUCTURES_RECREATION.sbn" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shapefiles/STRUCTURES_RECREATION.sbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shapefiles/STRUCTURES_RECREATION.shp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shapefiles/STRUCTURES_RECREATION.shp.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shapefiles/STRUCTURES_RECREATION.shx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shapefiles/TRANSPORTATION_LINE.cpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shapefiles/TRANSPORTATION_LINE.dbf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shapefiles/TRANSPORTATION_LINE.prj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shapefiles/TRANSPORTATION_LINE.sbn" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shapefiles/TRANSPORTATION_LINE.sbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shapefiles/TRANSPORTATION_LINE.shp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shapefiles/TRANSPORTATION_LINE.shp.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shapefiles/TRANSPORTATION_LINE.shx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shapefiles/TRANSPORTATION_POLYGON.cpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shapefiles/TRANSPORTATION_POLYGON.dbf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shapefiles/TRANSPORTATION_POLYGON.prj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shapefiles/TRANSPORTATION_POLYGON.sbn" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shapefiles/TRANSPORTATION_POLYGON.sbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shapefiles/TRANSPORTATION_POLYGON.shp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shapefiles/TRANSPORTATION_POLYGON.shp.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shapefiles/TRANSPORTATION_POLYGON.shx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SQL Queries.txt" beforeDir="false" afterPath="$PROJECT_DIR$/SQL Queries.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/asp/DBUtility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/asp/DBUtility.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/asp/GetGeometry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/asp/GetGeometry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/asp/searchTrails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/asp/searchTrails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/asp/submitComment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/asp/submitComment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/index.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -94,41 +38,6 @@
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
         <item name="pinnacle@localhost" type="feb32156:DbDataSourceImpl" />
       </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="pinnacle@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="pinnacle@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="pinnacle: database" type="6d9b600a:PostgresImplModel$Database" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="pinnacle@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="pinnacle: database" type="6d9b600a:PostgresImplModel$Database" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="pinnacle@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="pinnacle: database" type="6d9b600a:PostgresImplModel$Database" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="public: schema" type="a16502c0:PostgresImplModel$Schema" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="pinnacle@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="pinnacle: database" type="6d9b600a:PostgresImplModel$Database" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="public: schema" type="a16502c0:PostgresImplModel$Schema" />
-        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
-      </path>
     </expand>
     <select />
   </component>
@@ -136,13 +45,15 @@
     <session id="497600105">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="2" />
           <entry key="project.open.time.4" value="1" />
-          <entry key="project.opened" value="1" />
+          <entry key="project.open.time.7" value="1" />
+          <entry key="project.opened" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
+          <entry key="html" value="1" />
           <entry key="iml" value="1" />
           <entry key="java" value="5" />
           <entry key="sql" value="1" />
@@ -151,6 +62,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
+          <entry key="HTML" value="1" />
           <entry key="IDEA_MODULE" value="1" />
           <entry key="JAVA" value="5" />
           <entry key="Scratch" value="1" />
@@ -159,23 +71,25 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
+          <entry key="java" value="1214" />
           <entry key="txt" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
+          <entry key="JAVA" value="1214" />
           <entry key="PLAIN_TEXT" value="1" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="false">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/asp/GetGeometry.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="19" selection-start-line="19" selection-end-line="19" />
+            <state relative-caret-position="167">
+              <caret line="54" column="41" lean-forward="true" selection-start-line="54" selection-start-column="41" selection-end-line="54" selection-end-column="41" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -184,10 +98,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="8" column="7" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/asp/submitComment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="19" selection-start-line="19" selection-end-line="19" />
+            <state relative-caret-position="153">
+              <caret line="9" column="12" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -198,17 +121,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/asp/searchTrails.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+            <state relative-caret-position="170">
+              <caret line="15" column="42" selection-start-line="15" selection-start-column="42" selection-end-line="15" selection-end-column="42" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/asp/DBUtility.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="26" lean-forward="true" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
+            <state relative-caret-position="153">
+              <caret line="9" column="24" lean-forward="true" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -231,7 +154,11 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/src/asp/searchTrails.java" />
+        <option value="$PROJECT_DIR$/src/asp/submitComment.java" />
+        <option value="$PROJECT_DIR$/web/index.html" />
         <option value="$PROJECT_DIR$/src/asp/DBUtility.java" />
+        <option value="$PROJECT_DIR$/src/asp/GetGeometry.java" />
       </list>
     </option>
   </component>
@@ -240,6 +167,13 @@
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
@@ -253,7 +187,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -299,13 +232,14 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="postgresql" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552445182809" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552537604500" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/web/WEB-INF/lib/postgresql-42.2.5.jar!/" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -327,6 +261,7 @@
   </component>
   <component name="RunManager">
     <configuration name="Tomcat 7.0.91" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 7.0.91" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8081/" />
       <deployment>
         <artifact name="ar-park-viwer:war exploded">
           <settings>
@@ -334,12 +269,63 @@
           </settings>
         </artifact>
       </deployment>
-      <server-settings />
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="Tomcat_7_0_91_ar-park-viwer" />
+        <option name="HTTP_PORT" value="8081" />
+      </server-settings>
       <predefined_log_file id="Tomcat" enabled="true" />
       <predefined_log_file id="Tomcat Catalina" enabled="true" />
       <predefined_log_file id="Tomcat Manager" enabled="false" />
       <predefined_log_file id="Tomcat Host Manager" enabled="false" />
       <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="61099" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
       <method v="2">
         <option name="Make" enabled="true" />
         <option name="BuildArtifacts" enabled="true">
@@ -359,45 +345,48 @@
       <option name="presentableId" value="Default" />
       <updated>1552443227900</updated>
       <workItem from="1552443232879" duration="1954000" />
+      <workItem from="1552530059751" duration="7571000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1954000" />
+    <option name="totallyTimeSpent" value="9525000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Designer" />
-      <window_info id="Image Layers" />
-      <window_info id="UI Designer" />
-      <window_info id="Favorites" side_tool="true" />
-      <window_info id="Capture Tool" />
-      <window_info id="Web" sideWeight="0.30585682" side_tool="true" visible="true" weight="0.25" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6941432" visible="true" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.69305855" visible="true" weight="0.25266525" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Application Servers" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
-      <window_info anchor="bottom" id="Java Enterprise" />
-      <window_info anchor="bottom" id="Database Changes" />
-      <window_info anchor="bottom" id="Version Control" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Favorites" order="5" side_tool="true" />
+      <window_info id="Capture Tool" order="6" />
+      <window_info id="Web" order="7" sideWeight="0.30694142" side_tool="true" visible="true" weight="0.25266525" />
+      <window_info anchor="bottom" id="Messages" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.05965293" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="Palette" />
-      <window_info anchor="right" id="Capture Analysis" />
-      <window_info anchor="right" id="Maven Projects" />
-      <window_info anchor="right" id="Database" visible="true" weight="0.15831557" />
-      <window_info anchor="right" id="Palette&#9;" />
-      <window_info anchor="right" id="Theme Preview" />
+      <window_info anchor="bottom" id="Application Servers" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Java Enterprise" order="10" />
+      <window_info anchor="bottom" id="Database Changes" order="11" />
+      <window_info anchor="bottom" id="Version Control" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Maven Projects" order="5" />
+      <window_info anchor="right" id="Database" order="6" visible="true" weight="0.01652452" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Theme Preview" order="8" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -413,33 +402,17 @@
     <entry file="file://$PROJECT_DIR$/.idea/misc.xml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/geometry.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="21" selection-start-column="21" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/geometry.java" />
     <entry file="file://$PROJECT_DIR$/ar-park-viwer.iml">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/asp/GetGeometry.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/3c6cba9e-d882-4505-8dd0-d2566c37cc15/console.sql">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/asp/submitComment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
+        <state relative-caret-position="153">
+          <caret line="9" column="12" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -448,15 +421,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/asp/searchTrails.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+        <state relative-caret-position="170">
+          <caret line="15" column="42" selection-start-line="15" selection-start-column="42" selection-end-line="15" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="7" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/asp/DBUtility.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="26" lean-forward="true" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
+        <state relative-caret-position="153">
+          <caret line="9" column="24" lean-forward="true" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/asp/GetGeometry.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="54" column="41" lean-forward="true" selection-start-line="54" selection-start-column="41" selection-end-line="54" selection-end-column="41" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

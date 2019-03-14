@@ -9,7 +9,7 @@ import java.sql.Statement;
 
 public class DBUtility {
     private static final String Driver = "org.postgresql.Driver";
-    private static final String ConnUrl = "jdbc:postgresql://localhost:5433/ParkInsp";
+    private static final String ConnUrl = "jdbc:postgresql://localhost:5433/pinnacle";
     private static final String Username = "postgres";
     private static final String Password = "admin";
 
