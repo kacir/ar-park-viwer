@@ -42,7 +42,6 @@ public class GetGeometry extends HttpServlet {
     }
 
     public static JSONObject geoJSONprep (JSONObject geometry , JSONObject properties) throws JSONException{
-        System.out.println("prep JSON called!");
         JSONObject masterObject = new JSONObject();
         masterObject.put("type" , "Feature");
         masterObject.put("geometry" , geometry );
@@ -131,6 +130,19 @@ public class GetGeometry extends HttpServlet {
                     list.put(outputJSONObject);
                 }
                 break;
+            case "bridge":
+                res = GetGeometry.sqlSearch("SELECT ST_AsGeoJSON(ST_Transform(geom, 4326)) as geom, descriptio, material, type from recreation_point WHERE type = 'Bridge';");
+                while (res.next()) {
+                    JSONObject geometry = new JSONObject(res.getString("geom"));
+                    JSONObject properties = new JSONObject();
+
+                    properties.put("descriptio" , res.getString("descriptio"));
+                    properties.put("material" , res.getString("material"));
+                    properties.put("type" , res.getString("type"));
+                    JSONObject outputJSONObject =  geoJSONprep(geometry, properties);
+                    list.put(outputJSONObject);
+                }
+                break;
             case "bike":
                 res = GetGeometry.sqlSearch("SELECT ST_AsGeoJSON(ST_Transform(geom, 4326)) as geom, name, material from recreation_trail_line WHERE design_cat ='Bike';");
                 while (res.next()) {
@@ -178,6 +190,12 @@ public class GetGeometry extends HttpServlet {
                 }
                 break;
 
+            case "blackout":
+                res = GetGeometry.sqlSearch("SELECT ST_AsGeoJSON(ST_Transform(geom, 4326)) as geom from blackout;");
+                while (res.next()) {
+                    JSONObject geometry = new JSONObject(res.getString("geom"));
+                    list.put(geometry);
+                }
         }
         return list;
     }
