@@ -42,6 +42,7 @@ public class GetGeometry extends HttpServlet {
     }
 
     public static JSONObject geoJSONprep (JSONObject geometry , JSONObject properties) throws JSONException{
+        System.out.println("prep JSON called!");
         JSONObject masterObject = new JSONObject();
         masterObject.put("type" , "Feature");
         masterObject.put("geometry" , geometry );
@@ -51,6 +52,7 @@ public class GetGeometry extends HttpServlet {
     }
 
     public static JSONArray format(String layer_name) throws SQLException, JSONException {
+        System.out.println("Format function called for " + layer_name);
         JSONArray list = new JSONArray();
 
         ResultSet res;
@@ -76,12 +78,17 @@ public class GetGeometry extends HttpServlet {
                     list.put(outputJSONObject);
                 }
                 break;
-            case "parkboundary;":
+            case "parkboundary":
+                System.out.println("Park boundary was called on for SQL search");
                 res = GetGeometry.sqlSearch("SELECT ST_AsGeoJSON(ST_Transform(geom, 4326)) as geom from parkboundary;");
                 while (res.next()) {
                     JSONObject geometry = new JSONObject(res.getString("geom"));
                     JSONObject properties = new JSONObject();
                     JSONObject outputJSONObject =  geoJSONprep(geometry, properties);
+
+                    System.out.println("output JSON object of: ");
+                    System.out.println(outputJSONObject.toString());
+
                     list.put(outputJSONObject);
                 }
                 break;
