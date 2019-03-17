@@ -38,7 +38,12 @@ var trailheadIcon = L.icon(
         iconAnchor : [20,20],
         popupAnchor : [0,0]}
 );
-var trailheadLayer = L.geoJSON(null, {pointToLayer : function(feature, latlng){
+var trailheadLayer = L.geoJSON(null, {attribution : "Hiking by johanna from the Noun Project" ,
+    onEachFeature : function(feature, layer){
+        var popupText = "Hiking Trailhead";
+        layer.bindPopup(popupText);
+    },
+    pointToLayer : function(feature, latlng){
         var trailMarker = L.marker(latlng, {icon : trailheadIcon});
         return trailMarker;
     }
@@ -58,7 +63,12 @@ var mtbTrailIcon= L.icon(
         iconAnchor: [20,20],
         popupAnchor : [0,0]}
 );
-var mtbTrailheadLayer = L.geoJSON(null , {pointToLayer : function(feature, latlng){
+var mtbTrailheadLayer = L.geoJSON(null , {attribution : "Bicycle by Andrew Jones from the Noun Project" ,
+    onEachFeature : function(feature, layer){
+        var popupText = "MTB Trailhead";
+        layer.bindPopup(popupText);
+    },
+    pointToLayer : function(feature, latlng){
         var mtbMarker = L.marker(latlng, {icon : mtbTrailIcon});
         return mtbMarker;
     }
@@ -78,7 +88,12 @@ var waterTrailheadIcon =  L.icon(
         popupAnchor: [0,0]
     }
 );
-var waterTrailhead = L.geoJSON(null , {pointToLayer : function(feature, latlng){
+var waterTrailhead = L.geoJSON(null , {attribution : "Water by abdul karim from the Noun Project" ,
+    onEachFeature : function(feature, layer){
+        var popupText = "Water Trailhead";
+        layer.bindPopup(popupText);
+    },
+    pointToLayer : function(feature, latlng){
     var waterMarker = L.marker(latlng, {icon : waterTrailheadIcon});
     return waterMarker;
     }
@@ -98,7 +113,12 @@ var bridgeIcon  = L.icon(
         popupAnchor: [0,0]
     }
 );
-var trailBridgeLayer = L.geoJSON(null , {pointToLayer : function(feature, latlng){
+var trailBridgeLayer = L.geoJSON(null , {attribution : "Bridge by Dumitriu Robert from the Noun Project" ,
+    onEachFeature : function(feature, layer){
+        var popupText = "Trail Bridge";
+        layer.bindPopup(popupText);
+    },
+    pointToLayer : function(feature, latlng){
         var trailBridgeMarker = L.marker(latlng, {icon : bridgeIcon});
         return trailBridgeMarker;
     }
@@ -111,7 +131,10 @@ $.ajax({url : "/getgeometry?layer_name=bridge" , success : function(data){
 });
 
 //hiking trail
-var hikingLayer = L.geoJSON(null, {style :
+var hikingLayer = L.geoJSON(null, {onEachFeature : function(feature, layer){
+        var popupText =  "Hiking Trail " + feature.properties.name + ", Trail surface is " + feature.properties.material;
+        layer.bindPopup(popupText);
+    }, style :
         {stroke : true,
             color: "brown",
             weight: 3,
@@ -129,7 +152,10 @@ $.ajax({url : "/getgeometry?layer_name=foot" ,
 });
 
 //mtb trail
-var mtbTrailLayer = L.geoJSON(null, {style :
+var mtbTrailLayer = L.geoJSON(null, {onEachFeature : function(feature, layer){
+        var popupText =  "Bike Trail " + feature.properties.name + ", Trail surface is " + feature.properties.material;
+        layer.bindPopup(popupText);
+    }, style :
         {stroke : true,
             color: "red",
             weight: 3,
@@ -144,7 +170,10 @@ $.ajax({url : "/getgeometry?layer_name=bike", success : function(data){
     }
 });
 
-var waterTrailsLayer = L.geoJSON(null, {style :
+var waterTrailsLayer = L.geoJSON(null, {onEachFeature : function(feature, layer){
+        var popupText =  "Water Trail " + feature.properties.name;
+        layer.bindPopup(popupText);
+    }, style :
         {stroke : true,
             color: "blue",
             weight: 3,
@@ -180,7 +209,12 @@ $.ajax({url : "/getgeometry?layer_name=transportation_polygon",
 });
 
 //water bodies
-var waterBodiesLayer = L.geoJSON(null, {style :
+var waterBodiesLayer = L.geoJSON(null, {onEachFeature : function(feature, layer){
+        if (feature.properties.hasOwnProperty("name")){
+            var popupText =  feature.properties.name;
+            layer.bindPopup(popupText);
+        }
+    }, style :
         {stroke : true,
             color: "#1b3b9a",
             fill : true,
@@ -197,7 +231,12 @@ $.ajax({url : "/getgeometry?layer_name=hydro_poly" ,
 });
 
 //streams
-var streamsLayer = L.geoJSON(null, {style : {
+var streamsLayer = L.geoJSON(null, {onEachFeature : function(feature, layer){
+        if (feature.properties.hasOwnProperty("name")){
+            var popupText =  feature.properties.name;
+            layer.bindPopup(popupText);
+        }
+    }, style : {
         color: "#64c5ee",
         opacity : 1,
         weight: 2
@@ -215,10 +254,8 @@ $.ajax({url : "/getgeometry?layer_name=hydro_line", success : function(data){
 var parkBoundaryLayer = L.geoJSON(null, {style :
         {stroke : true,
             color: "#C1FCA5",
-            fill : true,
-            fillColor: "#C1FCA5",
-            weight : 5,
-            fillOpacity : 0.1}
+            fill : false,
+            weight : 5}
 });
 $.ajax({url : "/getgeometry?layer_name=parkboundary" ,
     success : function(data){
