@@ -1,32 +1,43 @@
-var map = L.map('map').fitWorld();
+var bounds = L.latLngBounds(L.latLng(  34.863935, -92.431679), L.latLng( 34.811334, -92.524776));
+
+var map = L.map('map', {minZoom : 13, maxBounds : bounds}).fitBounds(bounds);
 
 //map attribution that is needed - Bicycle by Andrew Jones from the Noun Project
 //Hiking by johanna from the Noun Project
 //Water by abdul karim from the Noun Project
 //comment by Aulia from the Noun Project
 //bridge by Dumitriu Robert from the Noun Project
+//Home by andrewcaliber from the Noun Project
 
 L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
     attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
 }).addTo(map);
 
-function onLocationFound(e) {
-    var radius = e.accuracy / 2;
 
-    L.marker(e.latlng).addTo(map)
-        .bindPopup("You are within " + radius + " meters from this point").openPopup();
+L.control.locate({position : "topright"}).addTo(map);
 
-    L.circle(e.latlng, radius).addTo(map);
-}
+function homeExtent(){
+    map.fitBounds(bounds);
+    //map.setView([ 34.840501, -92.471005], 14);
+};
+homeExtent();
 
-function onLocationError(e) {
-    alert(e.message);
-}
+//add a custom map control for the home button
+var homeButtonControl = L.control();
 
-map.on('locationfound', onLocationFound);
-map.on('locationerror', onLocationError);
+homeButtonControl.onAdd = function (map) {
+    this._div = L.DomUtil.create('div', 'home'); // create a div with a class "info"
+    this.update();
+    return this._div;
+};
 
-map.locate({setView: true, maxZoom: 16});
+homeButtonControl.update = function (props) {
+    this._div.innerHTML = "<img title='Zoom to Full Extent of Park' src='img/home.svg'></img>";
+};
+homeButtonControl.addTo(map);
+
+$(".home").click(homeExtent);
+
 
 //load major layers in the interface
 //Visitor Comments
@@ -268,10 +279,8 @@ $.ajax({url : "/getgeometry?layer_name=parkboundary" ,
 //blackout
 var blackoutLayer = L.geoJSON(null , {style :
         {stroke : false,
-            color: "black",
             fill : true,
             fillColor: "black",
-            weight : 5,
             fillOpacity : 0.6}
 });
 $.ajax({url : "/getgeometry?layer_name=blackout" , success : function(data){
@@ -297,7 +306,7 @@ L.control.layers( [], layerList).addTo(map);
 //add all the layers to the map in the correct rendering order
 
 streamsLayer.addTo(map);
-waterBodiesLayer.addTo(map);
+//waterBodiesLayer.addTo(map);
 roadsLayer.addTo(map);
 waterTrailsLayer.addTo(map);
 mtbTrailLayer.addTo(map);
