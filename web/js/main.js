@@ -16,6 +16,7 @@ L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/
 
 L.control.locate({position : "topright"}).addTo(map);
 
+//build home extent button
 function homeExtent(){
     map.fitBounds(bounds);
     //map.setView([ 34.840501, -92.471005], 14);
@@ -24,19 +25,57 @@ homeExtent();
 
 //add a custom map control for the home button
 var homeButtonControl = L.control();
-
 homeButtonControl.onAdd = function (map) {
     this._div = L.DomUtil.create('div', 'home'); // create a div with a class "info"
     this.update();
     return this._div;
 };
-
 homeButtonControl.update = function (props) {
     this._div.innerHTML = "<img title='Zoom to Full Extent of Park' src='img/home.svg'></img>";
 };
 homeButtonControl.addTo(map);
-
 $(".home").click(homeExtent);
+
+
+//build navbar
+var navMenu = L.control({position : "topleft"});
+navMenu.onAdd = function(map){
+    this._nav = L.DomUtil.create("nav", "navbar");
+    this.update();
+    return this._nav;
+}
+navMenu.update = function(props){
+    this._nav.innerHTML = "<ul class='nav nav-tabs'>\n" +
+        "\t<li class='nav-item'>\n" +
+        "\t\t<a class='nav-link active' id='trailtab' data-toggle='tab' href='#trailcontent' role='tab' aria-controls='trailcontent' aria-selected='true' >Trail Search<a/>\n" +
+        "\t</li>\n" +
+        "\t<li class='nav-item'>\n" +
+        "\t\t<a class='nav-link' id='commenttab' data-toggle='tab' href='#commentcontent' role='tab' aria-controls='commentcontent' aria-selected='false'>Tab 2</a>\n" +
+        "\t</li>\n" +
+        "</ul>\n" +
+        "<div class='tab-content' id='myTabContent'> \n" +
+        "\t<div class='tab-pane fade show active' id='trailcontent' role='tabpanel' aria-labelledby='trailtab'>Some kind of filler content for tab 1</div> \n" +
+        "\t<div class='tab-pane fade' id='commentcontent' role='tabpanel' aria-labeledby='commenttab'>\n" +
+        "\t\t<h4>Trail Type</h4>\n" +
+        "\t\t<label for='footcheck'>Foot</label>\n" +
+        "\t\t<input type='checkbox' id=\"footcheck\"></input>\n" +
+        "\t\t<label for='bikecheck'>Bike / MTB</label>\n" +
+        "\t\t<input type='checkbox' id=\"bikecheck\"></input>\n" +
+        "\t\t<label for='watercheck'>Water</label>\n" +
+        "\t\t<input type='checkbox' id=\"watercheck\"></input>\n" +
+        "\t\t\n" +
+        "\t\t<h4>Surface</h4>\n" +
+        "\t\t<label for='naturalcheck'></label>\n" +
+        "\t\t<input type='checkbox' id='naturalcheck'></input>\n" +
+        "\t\t<label for='pavedcheck'></label>\n" +
+        "\t\t<input type='checkbox' id='pavedcheck'></input>\n" +
+        "\t\t\n" +
+        "\t\t<button id='trail-submit'>\n" +
+        "\t\t\n" +
+        "\t</div> \n" +
+        "</div>";
+}
+navMenu.addTo(map);
 
 
 //load major layers in the interface
