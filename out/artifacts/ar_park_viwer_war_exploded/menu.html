@@ -1,0 +1,48 @@
+<ul class='nav nav-tabs'>
+	<li class='nav-item'>
+		<a class='nav-link active' id='trailtab' data-toggle='tab' href='#trailcontent' role='tab' aria-controls='trailcontent' aria-selected='true' >Trail Search<a/>
+	</li>
+	<li class='nav-item'>
+		<a class='nav-link' id='commenttab' data-toggle='tab' href='#commentcontent' role='tab' aria-controls='commentcontent' aria-selected='false'>Tab 2</a>
+	</li>
+</ul>
+<div class='tab-content' id='myTabContent'> 
+	<div class='tab-pane fade show active' id='trailcontent' role='tabpanel' aria-labelledby='trailtab'>
+			<h4>Trail Type</h4>
+		<label for='footcheck'>Foot</label>
+		<input type='checkbox' id="footcheck"></input>
+		<label for='bikecheck'>Bike / MTB</label>
+		<input type='checkbox' id="bikecheck"></input>
+		<label for='watercheck'>Water</label>
+		<input type='checkbox' id="watercheck"></input>
+		
+		<h4>Surface</h4>
+		<label for='naturalcheck'>Natural</label>
+		<input type='checkbox' id='naturalcheck'></input>
+		<label for='pavedcheck'>Paved</label>
+		<input type='checkbox' id='pavedcheck'></input>
+		
+		<button id='trail-submit'>Submit</button>
+	</div> 
+	<div class='tab-pane fade' id='commentcontent' role='tabpanel' aria-labeledby='commenttab'>
+		<label for='comment-location'>What is your favoriate part of the park?*</label>
+		<input type='text' id='comment-location'></input>
+		<label for='rate'>Rate your exeriance here from 1-10*</label>
+		<input type='text' id='rate'></input>
+		<label for='comment-text'>Please explain why the experiance was good or bad?</label>
+		<input type='text' id='comment-text'></input>
+		<label for='email'>Your email address</label>
+		<input type='text' id='email'></input>
+		<label for='phone'>Your phone number</label>
+		<input type='text' id='phone'></input>
+
+        <label for="prefer-contact">Preferred Contact method </label>
+		<select id="prefer-contact">
+			<option value='phone'>Phone</option>
+			<option value='email'>Email</option>
+		</select>
+
+        <button id="comment-submit">Submit</button>
+
+	</div> 
+</div>
