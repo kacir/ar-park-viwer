@@ -52,22 +52,50 @@ $.ajax({url : "/menu.html" , success : function(data){
         //bind a function to the element so it will ask for query from the backend
         $("#trail-submit").click(function(){
             //harvest values from the different elements in the control
-            var footvalue = $("#footcheck").prop("checked");;
-            var bikevalue = $("#bikecheck").prop("checked");;
-            var watervalue = $("#watercheck").prop("checked");;
-            var naturalvalue =  $("#naturalcheck").prop("checked");;
-            var pavedvalue = $("#pavedcheck").prop("checked");;
+            var footvalue = $("#footcheck").prop("checked");
+            var bikevalue = $("#bikecheck").prop("checked");
+            var watervalue = $("#watercheck").prop("checked");
+            var naturalvalue =  $("#naturalcheck").prop("checked");
+            var pavedvalue = $("#pavedcheck").prop("checked");
 
             console.log("button clicked on!");
-            var request_url = "/searchTrails?foot=" + footvalue + "&bike=" + bikevalue + "&water=" + watervalue + "&natural=" + naturalvalue + "&paved=" + pavedvalue;
+            var request_url = "/searchtrails?foot=" + footvalue + "&bike=" + bikevalue + "&water=" + watervalue + "&natural=" + naturalvalue + "&paved=" + pavedvalue;
             console.log("value of request url is: " + request_url);
+
+            //make a proper get request to backend
+            $.ajax({url : request_url , dataType : "json" , success : function(traildata){
+                    console.log("trail data from backend is");
+                    console.log(traildata);
+
+                    //override tab content and create a table based on the json data
+                    var trailContent = d3.select("#trailcontent").html("");
+                    trailContent.append("h4").text("Results of Trail Search");
+                    var table = trailContent.append("table");
+                    table.append("tr").html("<th>Trail Name</th><th>Allowed USe</th> <th>Surface</th>");
+                    table.selectAll(".trailitem")
+                        .data(traildata)
+                        .enter()
+                        .append("tr")
+                        .html(function(d){
+                            return "<td>" + d.properties.name + "</td><td>" + d.properties.design_cat + "</td><td>" + d.properties.material + "</td>";
+                        });
+                }
+            });
 
         });
 
         $("#comment-submit").click(function(){
-            var commentlocation = $("#comment-location").val();
+            var commentData = {};
+            commentData.commentlocation = $("#comment-location").val();
+            commentData.rate = $("#rate").val();
+            commentData.commenttext = $("#comment-text").val();
+            commentData.email = $("#email").val();
+            commentData.phone = $("#phone").val();
+            commentData.perferedContract = $("#prefer-contact").val();
             console.log("submit comment button clicked");
-            console.log("location value is: " + commentlocation);
+            console.log("location value is: " + commentData.commentlocation);
+
+            //make a proper post request to the backend
 
         });
 

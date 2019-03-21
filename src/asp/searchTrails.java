@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-@WebServlet("/searchTrails")
+@WebServlet("/searchtrails")
 public class searchTrails extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -29,27 +29,27 @@ public class searchTrails extends HttpServlet {
         Boolean bike = Boolean.parseBoolean(request.getParameter("bike"));
         Boolean water = Boolean.parseBoolean(request.getParameter("water"));
 
-        String whereClause = "WHERE ";
+        String whereClause = "";
 
         if (foot == false && bike == false && water == false) {
             //nothing is needed at all
             whereClause = "";
         } else {
             if (foot){
-                whereClause += " design_cat = 'foot' ";
+                whereClause += " design_cat = 'Foot' ";
             }
             if (bike){
                 if (whereClause.length() == 0) {
-                    whereClause += " design_cat = 'bike' ";
+                    whereClause += " design_cat = 'Bike' ";
                 } else {
-                    whereClause += " OR design_cat = 'bike' ";
+                    whereClause += " OR design_cat = 'Bike' ";
                 }
             }
             if (water) {
                 if (whereClause.length() == 0) {
-                    whereClause += " design_cat = 'water' ";
+                    whereClause += " design_cat = 'Water' ";
                 }
-                whereClause += " OR design_cat = 'water' ";
+                whereClause += " OR design_cat = 'Water' ";
             }
             whereClause = " ( " + whereClause + ") ";
         }
@@ -77,7 +77,13 @@ public class searchTrails extends HttpServlet {
             whereClause = whereClause + " AND ( " + surfaceSQL + " ) ";
         }
 
-        String sql = "SELECT geom, name, design_cat, material FROM recreation_trail_line " + whereClause + ";";
+        String sql;
+        if (whereClause == ""){
+            sql = "SELECT ST_AsGeoJSON(ST_Transform(geom, 4326)) as geom, name, design_cat, material FROM recreation_trail_line ";
+        } else {
+            sql = "SELECT ST_AsGeoJSON(ST_Transform(geom, 4326)) as geom, name, design_cat, material FROM recreation_trail_line WHERE " + whereClause + ";";
+        }
+
         System.out.println("entire SQL string has been generated. it is the following");
         System.out.println(sql);
 

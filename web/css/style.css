@@ -25,6 +25,8 @@ body {
 
 /*charactersitics for the nav on the left of screen*/
 .navbar {
-    width: 200px;
+    width: 300px;
     background-color: white;
+    overflow: auto;
+    max-height: 600px;
 }
