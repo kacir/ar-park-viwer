@@ -144,37 +144,40 @@ public class GetGeometry extends HttpServlet {
                 }
                 break;
             case "bike":
-                res = GetGeometry.sqlSearch("SELECT ST_AsGeoJSON(ST_Transform(geom, 4326)) as geom, name, material from recreation_trail_line WHERE design_cat ='Bike';");
+                res = GetGeometry.sqlSearch("SELECT ST_AsGeoJSON(ST_Transform(geom, 4326)) as geom, name, material, gid from recreation_trail_line WHERE design_cat ='Bike';");
                 while (res.next()) {
                     JSONObject geometry = new JSONObject(res.getString("geom"));
                     JSONObject properties = new JSONObject();
 
                     properties.put("name" , res.getString("name"));
                     properties.put("material" , res.getString("material"));
+                    properties.put("gid" , res.getString("gid"));
                     JSONObject outputJSONObject =  geoJSONprep(geometry, properties);
                     list.put(outputJSONObject);
                 }
                 break;
             case "water":
-                res = GetGeometry.sqlSearch("SELECT ST_AsGeoJSON(ST_Transform(geom, 4326)) as geom, name, material from recreation_trail_line WHERE design_cat ='Water';");
+                res = GetGeometry.sqlSearch("SELECT ST_AsGeoJSON(ST_Transform(geom, 4326)) as geom, name, material, gid from recreation_trail_line WHERE design_cat ='Water';");
                 while (res.next()) {
                     JSONObject geometry = new JSONObject(res.getString("geom"));
                     JSONObject properties = new JSONObject();
 
                     properties.put("name" , res.getString("name"));
                     properties.put("material" , res.getString("material"));
+                    properties.put("gid" , res.getString("gid"));
                     JSONObject outputJSONObject =  geoJSONprep(geometry, properties);
                     list.put(outputJSONObject);
                 }
                 break;
             case "foot":
-                res = GetGeometry.sqlSearch("SELECT ST_AsGeoJSON(ST_Transform(geom, 4326)) as geom, name, material from recreation_trail_line WHERE design_cat ='Foot';");
+                res = GetGeometry.sqlSearch("SELECT ST_AsGeoJSON(ST_Transform(geom, 4326)) as geom, name, material, gid from recreation_trail_line WHERE design_cat ='Foot';");
                 while (res.next()) {
                     JSONObject geometry = new JSONObject(res.getString("geom"));
                     JSONObject properties = new JSONObject();
 
                     properties.put("name" , res.getString("name"));
                     properties.put("material" , res.getString("material"));
+                    properties.put("gid" , res.getString("gid"));
                     JSONObject outputJSONObject =  geoJSONprep(geometry, properties);
                     list.put(outputJSONObject);
                 }

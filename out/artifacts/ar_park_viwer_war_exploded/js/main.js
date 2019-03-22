@@ -79,6 +79,14 @@ $.ajax({url : "/menu.html" , success : function(data){
                         .html(function(d){
                             return "<td>" + d.properties.name + "</td><td>" + d.properties.design_cat + "</td><td>" + d.properties.material + "</td>";
                         });
+
+                    var hightlightStyle = {stroke : true,
+                        color: "yellow",
+                        weight: 5,
+                        opacity: 1};
+                    L.geoJSON(traildata, {style : hightlightStyle}).addTo(map);
+
+
                 }
             });
 
