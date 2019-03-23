@@ -73,8 +73,11 @@ public class searchTrails extends HttpServlet {
                     surfaceSQL += " material = 'Paved' ";
                 }
             }
-
-            whereClause = whereClause + " AND ( " + surfaceSQL + " ) ";
+            if (whereClause == ""){
+                whereClause = whereClause + " ( " + surfaceSQL + " ) ";
+            } else {
+                whereClause = whereClause + " AND ( " + surfaceSQL + " ) ";
+            }
         }
 
         String sql;

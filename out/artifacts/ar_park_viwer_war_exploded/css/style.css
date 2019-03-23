@@ -30,3 +30,8 @@ body {
     overflow: auto;
     max-height: 600px;
 }
+
+/*any content that needs to be temporarily hidden*/
+.hidden {
+    display : none;
+}

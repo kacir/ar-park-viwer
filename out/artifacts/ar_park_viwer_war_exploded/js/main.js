@@ -42,7 +42,11 @@ var hightlightStyle = {stroke : true,
     color: "yellow",
     weight: 5,
     opacity: 1};
-var highlightLayer = L.geoJSON(null, {style : hightlightStyle});
+var highlightLayer = L.geoJSON(null, {style : hightlightStyle ,
+    onEachFeature : function(feature, layer){
+        var popupText = "Searched Trail: " + feature.properties.name + "</br>" + "Trail Surface is " + feature.properties.material + ", Trail use is " + feature.properties.design_cat;
+        layer.bindPopup(popupText);
+    }});
 
 //build navbar
 $.ajax({url : "/menu.html" , success : function(data){
@@ -56,6 +60,12 @@ $.ajax({url : "/menu.html" , success : function(data){
             this._nav.innerHTML = data;
         };
         navMenu.addTo(map);
+
+        $("#backarrow").click(function(){
+            $("#trail-search-form").removeClass("hidden");
+            $("#trail-search-results").addClass("hidden");
+            map.removeLayer(highlightLayer);
+        });
 
         //bind a function to the element so it will ask for query from the backend
         $("#trail-submit").click(function(){
@@ -75,23 +85,8 @@ $.ajax({url : "/menu.html" , success : function(data){
                     console.log("trail data from backend is");
                     console.log(traildata);
 
-                    //override tab content and create a table based on the json data
-                    var trailContent = d3.select("#trailcontent").html("");
-                    trailContent.append("img")
-                        .attr("src", "/img/backarrow.svg")
-                        .attr("width" , "40px")
-                        .attr("id" , "backarrow")
-                        .on("click" , function(){
-                            console.log("click event fired Here");
-                            alert("Click event fired!");
-                            //reload the entire set of tab content
-                            console.log(data);
-                            $(".navbar").empty();
-                            d3.select(".navbar").html(data);
-
-                    });
-                    trailContent.append("h4").text("Results of Trail Search");
-                    var table = trailContent.append("table");
+                    var table = d3.select("table");
+                    table.html("");
                     table.append("tr").html("<th>Trail Name</th><th>Allowed USe</th> <th>Surface</th>");
                     table.selectAll(".trailitem")
                         .data(traildata)
@@ -104,6 +99,9 @@ $.ajax({url : "/menu.html" , success : function(data){
                     highlightLayer.clearLayers();//remove data from previous searches in the geoJSON object
                     highlightLayer.addData(traildata);
                     highlightLayer.addTo(map);
+
+                    $("#trail-search-form").addClass("hidden");
+                    $("#trail-search-results").removeClass("hidden");
 
 
                 }
