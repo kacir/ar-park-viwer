@@ -36,6 +36,14 @@ homeButtonControl.update = function (props) {
 homeButtonControl.addTo(map);
 $(".home").click(homeExtent);
 
+
+
+var hightlightStyle = {stroke : true,
+    color: "yellow",
+    weight: 5,
+    opacity: 1};
+var highlightLayer = L.geoJSON(null, {style : hightlightStyle});
+
 //build navbar
 $.ajax({url : "/menu.html" , success : function(data){
         var navMenu = L.control({position : "topleft"});
@@ -69,6 +77,19 @@ $.ajax({url : "/menu.html" , success : function(data){
 
                     //override tab content and create a table based on the json data
                     var trailContent = d3.select("#trailcontent").html("");
+                    trailContent.append("img")
+                        .attr("src", "/img/backarrow.svg")
+                        .attr("width" , "40px")
+                        .attr("id" , "backarrow")
+                        .on("click" , function(){
+                            console.log("click event fired Here");
+                            alert("Click event fired!");
+                            //reload the entire set of tab content
+                            console.log(data);
+                            $(".navbar").empty();
+                            d3.select(".navbar").html(data);
+
+                    });
                     trailContent.append("h4").text("Results of Trail Search");
                     var table = trailContent.append("table");
                     table.append("tr").html("<th>Trail Name</th><th>Allowed USe</th> <th>Surface</th>");
@@ -80,11 +101,9 @@ $.ajax({url : "/menu.html" , success : function(data){
                             return "<td>" + d.properties.name + "</td><td>" + d.properties.design_cat + "</td><td>" + d.properties.material + "</td>";
                         });
 
-                    var hightlightStyle = {stroke : true,
-                        color: "yellow",
-                        weight: 5,
-                        opacity: 1};
-                    L.geoJSON(traildata, {style : hightlightStyle}).addTo(map);
+                    highlightLayer.clearLayers();//remove data from previous searches in the geoJSON object
+                    highlightLayer.addData(traildata);
+                    highlightLayer.addTo(map);
 
 
                 }
