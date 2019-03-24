@@ -67,6 +67,11 @@ $.ajax({url : "/menu.html" , success : function(data){
             map.removeLayer(highlightLayer);
         });
 
+        $("#backarrow2").click(function(){
+            $("#comment-submit-form").removeClass("hidden");
+            $("#comment-submit-feedback").addClass("hidden");
+        });
+
         //bind a function to the element so it will ask for query from the backend
         $("#trail-submit").click(function(){
             //harvest values from the different elements in the control
@@ -111,7 +116,8 @@ $.ajax({url : "/menu.html" , success : function(data){
 
         $("#comment-submit").click(function(){
             var commentData = {};
-            commentData.commentlocation = $("#comment-location").val();
+            commentData.lat = $("#lat").val();
+            commentData.lng = $("#lng").val();
             commentData.rate = $("#rate").val();
             commentData.commenttext = $("#comment-text").val();
             commentData.email = $("#email").val();
@@ -120,7 +126,22 @@ $.ajax({url : "/menu.html" , success : function(data){
             console.log("submit comment button clicked");
             console.log("location value is: " + commentData.commentlocation);
 
-            //make a proper post request to the backend
+            if (commentData.lng === "" || commentData.lng == ""){
+                alert("Location info has not been filled in");
+            } else if (isNaN(commentData.lng) || isNaN(commentData.lat) ){
+                alert("Location Info is not a valid coordinate set, is not a number");
+            } else if (commentData.rate == ""){
+                alert("Rating has not been filled in");
+            } else if (isNaN(commentData.rate)){
+                alert("Rating is not a number");
+            } else {
+                //make a proper post request to the backend
+
+                //change the interface to show the thank you message
+                $("#comment-submit-form").addClass("hidden");
+                $("#comment-submit-feedback").removeClass("hidden");
+            }
+
 
         });
 
@@ -131,6 +152,33 @@ $.ajax({url : "/menu.html" , success : function(data){
 
 //load major layers in the interface
 //Visitor Comments
+var commentIcon = L.icon(
+    {iconUrl : "/img/comment.svg",
+        iconSize : [40,40],
+        iconAnchor : [20,20],
+        popupAnchor : [0,0]}
+);
+
+var commentsLayer = L.geoJSON(null, {attribution : "Comments housed from ADPT" ,
+    pointToLayer : function(feature, latlng){
+        var trailMarker = L.marker(latlng, {icon : commentIcon});
+        return trailMarker;
+    }, onEachFeature : function(feature, layer){
+        var popupText = "Comment <br> Rating: " + feature.properties.rate + " Detailed Comment :" + feature.properties.explain;
+        console.log("comment popup text, With Victory");
+        console.log(popupText);
+        layer.bindPopup(popupText);
+    }
+});
+
+
+$.ajax({url : "/getgeometry?layer_name=comments" , success : function(commentData){
+    console.log("Data for oomments is being requested");
+    console.log(commentData);
+    commentsLayer.addData(commentData);
+    }
+});
+
 
 //normal foot trailhead
 var trailheadIcon = L.icon(
@@ -379,7 +427,8 @@ $.ajax({url : "/getgeometry?layer_name=blackout" , success : function(data){
     }
 });
 
-var layerList = { "Hiking Trailheads" : trailheadLayer,
+var layerList = {"Comments Layer" : commentsLayer,
+    "Hiking Trailheads" : trailheadLayer,
     "MTB Trailheads" : mtbTrailheadLayer,
     "Water Trailheads" : waterTrailhead,
     "Trail Bridges" :trailBridgeLayer,

@@ -199,6 +199,21 @@ public class GetGeometry extends HttpServlet {
                     JSONObject geometry = new JSONObject(res.getString("geom"));
                     list.put(geometry);
                 }
+            case "comments":
+                res = GetGeometry.sqlSearch("SELECT ST_AsGeoJSON(ST_Transform(geom, 4326)) as geom, rate, explain, email, phone, prime from comments;");
+                while (res.next()) {
+                    JSONObject geometry = new JSONObject(res.getString("geom"));
+                    JSONObject properties = new JSONObject();
+
+                    properties.put("rate" , res.getString("rate"));
+                    properties.put("explain" , res.getString("explain"));
+                    properties.put("email" , res.getString("email"));
+                    properties.put("phone" , res.getString("phone"));
+                    properties.put("prime" , res.getString("prime"));
+
+                    JSONObject outputJSONObject =  geoJSONprep(geometry, properties);
+                    list.put(outputJSONObject);
+                }
         }
         return list;
     }

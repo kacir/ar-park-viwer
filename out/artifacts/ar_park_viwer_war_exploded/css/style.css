@@ -23,12 +23,22 @@ body {
     cursor: pointer;
 }
 
-/*charactersitics for the nav on the left of screen*/
+/* back arrow inside of the search menu */
+.back-arrow {
+    cursor: pointer;
+}
+
+/*characteristics for the nav on the left of screen*/
 .navbar {
-    width: 300px;
+    width: 310px;
     background-color: white;
     overflow: auto;
     max-height: 600px;
+}
+
+#close-button{
+    margin-left: 10px;
+    cursor: pointer;
 }
 
 /*any content that needs to be temporarily hidden*/
