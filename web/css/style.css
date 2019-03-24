@@ -32,11 +32,11 @@ body {
 .navbar {
     background-color: white;
     overflow: auto;
-    max-height: 600px;
+    max-height: 420px;
 }
 
 .expanded-navbar {
-    width: 310px;
+    width: 270px;
 }
 
 .constrained-navbar {
@@ -44,7 +44,6 @@ body {
 }
 
 #close-button{
-    margin-left: 10px;
     cursor: pointer;
 }
 

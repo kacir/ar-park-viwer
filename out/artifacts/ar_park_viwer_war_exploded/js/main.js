@@ -1,6 +1,8 @@
 var bounds = L.latLngBounds(L.latLng(  34.863935, -92.431679), L.latLng( 34.811334, -92.524776));
 
 var map = L.map('map', {minZoom : 13, maxBounds : bounds}).fitBounds(bounds);
+map.zoomControl.setPosition("bottomleft");
+map.attributionControl.addAttribution("<a href='mapcredits.html'>Icon and layer credits</a>");
 
 //map attribution that is needed - Bicycle by Andrew Jones from the Noun Project
 //Hiking by johanna from the Noun Project
@@ -9,9 +11,7 @@ var map = L.map('map', {minZoom : 13, maxBounds : bounds}).fitBounds(bounds);
 //bridge by Dumitriu Robert from the Noun Project
 //Home by andrewcaliber from the Noun Project
 
-L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-    attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
-}).addTo(map);
+L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}').addTo(map);
 
 
 L.control.locate({position : "topright"}).addTo(map);
@@ -61,7 +61,7 @@ $.ajax({url : "/menu.html" , success : function(data){
         };
         navMenu.addTo(map);
 
-        $(".navbar").addClass("expanded-navbar");
+        $(".navbar").addClass("constrained-navbar");
 
         $("#close-button").click(function(){
             $(".nav-tabs , #close-button , #myTabContent").addClass("hidden");
@@ -183,7 +183,7 @@ var commentIcon = L.icon(
         popupAnchor : [0,0]}
 );
 
-var commentsLayer = L.geoJSON(null, {attribution : "Comments housed from ADPT" ,
+var commentsLayer = L.geoJSON(null, {
     pointToLayer : function(feature, latlng){
         var trailMarker = L.marker(latlng, {icon : commentIcon});
         return trailMarker;
@@ -211,7 +211,7 @@ var trailheadIcon = L.icon(
         iconAnchor : [20,20],
         popupAnchor : [0,0]}
 );
-var trailheadLayer = L.geoJSON(null, {attribution : "Hiking by johanna from the Noun Project" ,
+var trailheadLayer = L.geoJSON(null, {
     onEachFeature : function(feature, layer){
         var popupText = "Hiking Trailhead";
         layer.bindPopup(popupText);
@@ -236,7 +236,7 @@ var mtbTrailIcon= L.icon(
         iconAnchor: [20,20],
         popupAnchor : [0,0]}
 );
-var mtbTrailheadLayer = L.geoJSON(null , {attribution : "Bicycle by Andrew Jones from the Noun Project" ,
+var mtbTrailheadLayer = L.geoJSON(null , {
     onEachFeature : function(feature, layer){
         var popupText = "MTB Trailhead";
         layer.bindPopup(popupText);
@@ -261,7 +261,7 @@ var waterTrailheadIcon =  L.icon(
         popupAnchor: [0,0]
     }
 );
-var waterTrailhead = L.geoJSON(null , {attribution : "Water by abdul karim from the Noun Project" ,
+var waterTrailhead = L.geoJSON(null , {
     onEachFeature : function(feature, layer){
         var popupText = "Water Trailhead";
         layer.bindPopup(popupText);
@@ -286,7 +286,7 @@ var bridgeIcon  = L.icon(
         popupAnchor: [0,0]
     }
 );
-var trailBridgeLayer = L.geoJSON(null , {attribution : "Bridge by Dumitriu Robert from the Noun Project" ,
+var trailBridgeLayer = L.geoJSON(null , {
     onEachFeature : function(feature, layer){
         var popupText = "Trail Bridge";
         layer.bindPopup(popupText);
