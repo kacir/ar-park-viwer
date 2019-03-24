@@ -199,6 +199,7 @@ public class GetGeometry extends HttpServlet {
                     JSONObject geometry = new JSONObject(res.getString("geom"));
                     list.put(geometry);
                 }
+                break;
             case "comments":
                 res = GetGeometry.sqlSearch("SELECT ST_AsGeoJSON(ST_Transform(geom, 4326)) as geom, rate, explain, email, phone, prime from comments;");
                 while (res.next()) {
@@ -214,6 +215,7 @@ public class GetGeometry extends HttpServlet {
                     JSONObject outputJSONObject =  geoJSONprep(geometry, properties);
                     list.put(outputJSONObject);
                 }
+                break;
         }
         return list;
     }
