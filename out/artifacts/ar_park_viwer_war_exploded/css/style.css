@@ -24,16 +24,23 @@ body {
 }
 
 /* back arrow inside of the search menu */
-.back-arrow {
+.back-arrow, #expand-hamburger {
     cursor: pointer;
 }
 
 /*characteristics for the nav on the left of screen*/
 .navbar {
-    width: 310px;
     background-color: white;
     overflow: auto;
     max-height: 600px;
+}
+
+.expanded-navbar {
+    width: 310px;
+}
+
+.constrained-navbar {
+    width: 50px;
 }
 
 #close-button{

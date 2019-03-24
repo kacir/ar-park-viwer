@@ -61,6 +61,25 @@ $.ajax({url : "/menu.html" , success : function(data){
         };
         navMenu.addTo(map);
 
+        $(".navbar").addClass("expanded-navbar");
+
+        $("#close-button").click(function(){
+            $(".nav-tabs , #close-button , #myTabContent").addClass("hidden");
+            $("#expand-hamburger").removeClass("hidden");
+
+            $(".navbar").removeClass("expanded-navbar");
+            $(".navbar").addClass("constrained-navbar");
+        });
+
+        $("#expand-hamburger").click(function(){
+            $(".nav-tabs , #close-button , #myTabContent").removeClass("hidden");
+            $("#expand-hamburger").addClass("hidden");
+
+            $(".navbar").addClass("expanded-navbar");
+            $(".navbar").removeClass("constrained-navbar");
+
+        });
+
         $("#backarrow").click(function(){
             $("#trail-search-form").removeClass("hidden");
             $("#trail-search-results").addClass("hidden");
@@ -119,10 +138,10 @@ $.ajax({url : "/menu.html" , success : function(data){
             commentData.lat = $("#lat").val();
             commentData.lng = $("#lng").val();
             commentData.rate = $("#rate").val();
-            commentData.commenttext = $("#comment-text").val();
+            commentData.explain = $("#comment-text").val();
             commentData.email = $("#email").val();
             commentData.phone = $("#phone").val();
-            commentData.perferedContract = $("#prefer-contact").val();
+            commentData.prime = $("#prefer-contact").val();
             console.log("submit comment button clicked");
             console.log("location value is: " + commentData.commentlocation);
 
@@ -136,6 +155,11 @@ $.ajax({url : "/menu.html" , success : function(data){
                 alert("Rating is not a number");
             } else {
                 //make a proper post request to the backend
+                $.post("/submitcomment" , commentData, function(callbackData, status){
+                    console.log("info from post request is: ");
+                    console.log(callbackData);
+                    console.log(status);
+                });
 
                 //change the interface to show the thank you message
                 $("#comment-submit-form").addClass("hidden");

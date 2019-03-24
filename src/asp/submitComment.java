@@ -12,7 +12,7 @@ public class submitComment extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //harvest all the parameters from the comments url parameters
         String lat = request.getParameter("lat");
-        String lon = request.getParameter("lon");
+        String lon = request.getParameter("lng");
         String rate = request.getParameter("rate");
         String explain = request.getParameter("explain");
         String email = request.getParameter("email");
@@ -20,7 +20,7 @@ public class submitComment extends HttpServlet {
         String prime = request.getParameter("prime");
 
         String sql = "INSERT INTO comments (geom , rate, explain, email, phone, prime)" +
-                "VALUES ( ST_SetSRID(ST_MakePoint( " + lat + " , " + lon + " ), 4326), " + rate + "," +  explain + "," + email + "," + phone + "," + prime + " ); ";
+                "VALUES ( ST_SetSRID(ST_MakePoint( " + lat + " , " + lon + " ), 4326), " + rate + ", '" +  explain + "' , '" + email + "' , '" + phone + "' , '" + prime + "' ); ";
         System.out.println("Following is the sql code for inserting the record");
         System.out.println(sql);
 
