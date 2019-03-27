@@ -30,7 +30,7 @@ body {
 
 /*characteristics for the nav on the left of screen*/
 .navbar {
-    background-color: white;
+    background-color: #007E00;
     overflow: auto;
     max-height: 420px;
 }
@@ -47,7 +47,55 @@ body {
     cursor: pointer;
 }
 
+/* Tab related CSS */
+.tab-pane{
+    padding: 15px;
+    background-color: #C1FCA5;
+    width: 221px;
+}
+
+.nav-item {
+    background-color: rgb(106, 195, 91);
+}
+
+.nav-tabs .nav-link.active {
+    background-color: #C1FCA5;
+}
+
+input[type="text"]{
+    width: 194px;
+}
+
+.radi-elements, navbar, leaflet-control {
+    border-radius: 7px;
+}
+
+.nav-item {
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+}
+
 /*any content that needs to be temporarily hidden*/
 .hidden {
     display : none;
+}
+
+
+
+/* custom Scroll wheel CSS */
+/* width */
+::-webkit-scrollbar {
+    width: 7px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+    background: white;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #C1FCA5;
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #007E00;
 }
