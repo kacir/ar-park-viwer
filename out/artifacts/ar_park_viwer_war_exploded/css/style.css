@@ -66,9 +66,26 @@ input[type="text"]{
     width: 194px;
 }
 
-.radi-elements, navbar, leaflet-control {
+.radi-elements, .navbar, leaflet-control {
     border-radius: 7px;
 }
+
+/*matches the sizes for each of the side icons in the order of locate, home extent, layer list*/
+div.leaflet-control-locate  .leaflet-bar-part, .leaflet-control img[src="img/home.svg"], .leaflet-control-layers a.leaflet-control-layers-toggle {
+    width: 50px;
+    height: 50px;
+    border-radius: 7px;
+    background-color: #007E00;
+}
+div.leaflet-control-layers, div.home {
+    background-color: rgba(255, 255, 255, 0);
+}
+
+div.leaflet-control-layers-expanded{
+    background-color: #007E00;
+    color: white;
+}
+
 
 .nav-item {
     border-top-left-radius: 7px;
