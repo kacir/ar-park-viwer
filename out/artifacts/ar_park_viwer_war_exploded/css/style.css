@@ -70,6 +70,8 @@ input[type="text"]{
     border-radius: 7px;
 }
 
+
+
 /*matches the sizes for each of the side icons in the order of locate, home extent, layer list*/
 div.leaflet-control-locate  .leaflet-bar-part, .leaflet-control img[src="img/home.svg"], .leaflet-control-layers a.leaflet-control-layers-toggle {
     width: 50px;
