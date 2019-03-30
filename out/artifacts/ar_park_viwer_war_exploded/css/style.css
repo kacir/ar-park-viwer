@@ -2,10 +2,6 @@ html, body {
     height: 100%;
     margin: 0;
 }
-#map {
-    width: 600px;
-    height: 400px;
-}
 
 body {
     padding: 0;
@@ -15,6 +11,9 @@ body {
 #map {
     height: 100%;
     width: 100vw;
+}
+#map.click-map-activated{
+    cursor: url(https://unpkg.com/leaflet@1.0.1/dist/images/marker-icon.png), auto;
 }
 
 /* color for the home extent button */

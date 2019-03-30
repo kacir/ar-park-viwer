@@ -47,6 +47,8 @@ var highlightLayer = L.geoJSON(null, {style : hightlightStyle ,
         var popupText = "Searched Trail: " + feature.properties.name + "</br>" + "Trail Surface is " + feature.properties.material + ", Trail use is " + feature.properties.design_cat;
         layer.bindPopup(popupText);
     }});
+var commentPointCharacteristics = {latlng : null, layer : null};
+
 
 //build navbar
 $.ajax({url : "/menu.html" , success : function(data){
@@ -62,6 +64,12 @@ $.ajax({url : "/menu.html" , success : function(data){
         navMenu.addTo(map);
 
         $(".navbar").addClass("constrained-navbar");
+        $(".navbar").on("mouseover", function(){
+            map.dragging.disable();
+        });
+        $(".navbar").on("mouseout" , function(){
+            map.dragging.enable();
+        });
 
         var resizeMenu = {};
         resizeMenu.expand = function(){
@@ -162,6 +170,32 @@ $.ajax({url : "/menu.html" , success : function(data){
 
         });
 
+        map.addEventListener("mousemove" , function(e){
+            commentPointCharacteristics.latlng = e.latlng;
+        });
+
+        $("#select-map-location").on("mousedown" ,function(e){
+            $("#select-map-location").text("Click here to Cancel");
+            $("#map").addClass("click-map-activated");
+            e.preventDefault();
+
+        });
+
+        $("#map").on("mouseup" , function(){
+            if ($("#map").hasClass("click-map-activated")){
+                $("#map").removeClass("click-map-activated");
+
+                if (!(commentPointCharacteristics.layer === null)){
+                    map.removeLayer(commentPointCharacteristics.layer);
+                }
+                commentPointCharacteristics.layer = L.marker(commentPointCharacteristics.latlng, {draggable : true}).addTo(map);
+                console.log("Mouse has been released for point to be added to map");
+            }
+
+
+        });
+
+
         $("#comment-submit").click(function(){
             //Mouse event https://leafletjs.com/reference-1.4.0.html#mouseevent
             //event generator needed to get coordinates https://leafletjs.com/reference-1.4.0.html#map-move
@@ -170,8 +204,8 @@ $.ajax({url : "/menu.html" , success : function(data){
 
 
             var commentData = {};
-            commentData.lat = $("#lat").val();
-            commentData.lng = $("#lng").val();
+            commentData.lat = commentPointCharacteristics.layer.getLatLng().lat;
+            commentData.lng = commentPointCharacteristics.layer.getLatLng().lng;
             commentData.rate = $("#rate").val();
             commentData.explain = $("#comment-text").val();
             commentData.email = $("#email").val();
@@ -180,10 +214,8 @@ $.ajax({url : "/menu.html" , success : function(data){
             console.log("submit comment button clicked");
             console.log("location value is: " + commentData.commentlocation);
 
-            if (commentData.lng === "" || commentData.lng == ""){
+            if (commentPointCharacteristics.layer == null){
                 alert("Location info has not been filled in");
-            } else if (isNaN(commentData.lng) || isNaN(commentData.lat) ){
-                alert("Location Info is not a valid coordinate set, is not a number");
             } else if (commentData.rate == ""){
                 alert("Rating has not been filled in");
             } else if (isNaN(commentData.rate)){

@@ -20,7 +20,7 @@ public class submitComment extends HttpServlet {
         String prime = request.getParameter("prime");
 
         String sql = "INSERT INTO comments (geom , rate, explain, email, phone, prime)" +
-                "VALUES ( ST_SetSRID(ST_MakePoint( " + lat + " , " + lon + " ), 4326), " + rate + ", '" +  explain + "' , '" + email + "' , '" + phone + "' , '" + prime + "' ); ";
+                "VALUES ( ST_SetSRID(ST_MakePoint( " + lon + " , " + lat  + " ), 4326), " + rate + ", '" +  explain + "' , '" + email + "' , '" + phone + "' , '" + prime + "' ); ";
         System.out.println("Following is the sql code for inserting the record");
         System.out.println(sql);
 
