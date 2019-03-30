@@ -1,7 +1,7 @@
 var bounds = L.latLngBounds(L.latLng(  34.863935, -92.431679), L.latLng( 34.811334, -92.524776));
 
 var map = L.map('map', {minZoom : 13, maxBounds : bounds}).fitBounds(bounds);
-map.zoomControl.setPosition("bottomleft");
+map.zoomControl.setPosition("bottomright");
 map.attributionControl.addAttribution("<a href='mapcredits.html'>Icon and layer credits</a>");
 
 //map attribution that is needed - Bicycle by Andrew Jones from the Noun Project
@@ -71,6 +71,10 @@ $.ajax({url : "/menu.html" , success : function(data){
             $(".navbar").addClass("expanded-navbar");
             $(".navbar").removeClass("constrained-navbar");
 
+            if ($("#trailtab").hasClass("active") && $("#trail-search-form").hasClass("hidden")){
+                $(".navbar").height(window.innerHeight * 0.9);
+            }
+
         };
         resizeMenu.close = function(){
             $(".nav-tabs , #close-button , #myTabContent").addClass("hidden");
@@ -78,10 +82,14 @@ $.ajax({url : "/menu.html" , success : function(data){
 
             $(".navbar").removeClass("expanded-navbar");
             $(".navbar").addClass("constrained-navbar");
+            $(".navbar").removeAttr("style");
         };
 
         $("#close-button").click(resizeMenu.close);
         $("#expand-hamburger").click(resizeMenu.expand);
+        $("#commenttab").click(function(){
+            $(".navbar").removeAttr("style");
+        });
 
         resizeMenu.autoResize = function(){
             console.log("resize function called");
@@ -103,6 +111,7 @@ $.ajax({url : "/menu.html" , success : function(data){
             $("#trail-search-form").removeClass("hidden");
             $("#trail-search-results").addClass("hidden");
             map.removeLayer(highlightLayer);
+            $(".navbar").removeAttr("style");
         });
 
         $("#backarrow2").click(function(){
@@ -145,6 +154,7 @@ $.ajax({url : "/menu.html" , success : function(data){
 
                     $("#trail-search-form").addClass("hidden");
                     $("#trail-search-results").removeClass("hidden");
+                    $(".navbar").height(window.innerHeight * 0.9);
 
 
                 }
@@ -153,6 +163,12 @@ $.ajax({url : "/menu.html" , success : function(data){
         });
 
         $("#comment-submit").click(function(){
+            //Mouse event https://leafletjs.com/reference-1.4.0.html#mouseevent
+            //event generator needed to get coordinates https://leafletjs.com/reference-1.4.0.html#map-move
+            //release mouse event https://api.jquery.com/mouseup/
+            //https://www.w3schools.com/cssref/pr_class_cursor.asp with URL modifyer
+
+
             var commentData = {};
             commentData.lat = $("#lat").val();
             commentData.lng = $("#lng").val();

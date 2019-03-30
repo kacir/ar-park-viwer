@@ -1,1 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 100 125" enable-background="new 0 0 100 100" xml:space="preserve"><g><path d="M22,34h56c2.2,0,4-1.8,4-4c0-2.2-1.8-4-4-4H22c-2.2,0-4,1.8-4,4C18,32.2,19.8,34,22,34z"/><path d="M78,46H22c-2.2,0-4,1.8-4,4c0,2.2,1.8,4,4,4h56c2.2,0,4-1.8,4-4C82,47.8,80.2,46,78,46z"/><path d="M78,66H22c-2.2,0-4,1.8-4,4c0,2.2,1.8,4,4,4h56c2.2,0,4-1.8,4-4C82,67.8,80.2,66,78,66z"/></g><text x="0" y="115" fill="#000000" font-size="5px" font-weight="bold" font-family="'Helvetica Neue', Helvetica, Arial-Unicode, Arial, Sans-serif">Created by Alex Podolsky</text><text x="0" y="120" fill="#000000" font-size="5px" font-weight="bold" font-family="'Helvetica Neue', Helvetica, Arial-Unicode, Arial, Sans-serif">from the Noun Project</text></svg>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 23.0.2, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="100px" height="125px" viewBox="0 0 100 125" style="enable-background:new 0 0 100 125;" xml:space="preserve">
+<g>
+	<path d="M7,30.7h84.5c3.3,0,6-3.4,6-7.6s-2.7-7.6-6-7.6H7c-3.3,0-6,3.4-6,7.6S3.6,30.7,7,30.7z"/>
+	<path d="M91.4,53.5H7c-3.3,0-6,3.4-6,7.6s2.7,7.6,6,7.6h84.5c3.3,0,6-3.4,6-7.6S94.7,53.5,91.4,53.5z"/>
+	<path d="M91.4,91.5H7c-3.3,0-6,3.4-6,7.6s2.7,7.6,6,7.6h84.5c3.3,0,6-3.4,6-7.6S94.7,91.5,91.4,91.5z"/>
+</g>
+</svg>
