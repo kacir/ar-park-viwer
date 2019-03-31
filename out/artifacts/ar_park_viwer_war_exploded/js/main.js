@@ -200,14 +200,24 @@ $.ajax({url : "/menu.html" , success : function(data){
         });
 
         $("#select-map-location").on("mousedown" ,function(e){
-            $("#select-map-location").text("Click here to Cancel");
-            $("#map").addClass("click-map-activated");
-            e.preventDefault();
+            if(window.innerWidth >= 700){
+                $("#map").addClass("click-map-activated");
+                e.preventDefault();
+            } else {
+                resizeMenu.close();
+                $("#map").addClass("click-map-activated");
+                e.preventDefault();
+            };
+        });
 
+        map.addEventListener( "click" , function(e){
+            if ($("#map").hasClass("click-map-activated") && window.innerWidth < 700){
+
+            }
         });
 
         $("#map").on("mouseup" , function(){
-            if ($("#map").hasClass("click-map-activated")){
+            if ( $("#map").hasClass("click-map-activated")){
                 $("#map").removeClass("click-map-activated");
 
                 if (!(commentPointCharacteristics.layer === null)){
@@ -215,6 +225,11 @@ $.ajax({url : "/menu.html" , success : function(data){
                 }
                 commentPointCharacteristics.layer = L.marker(commentPointCharacteristics.latlng, {draggable : true}).addTo(map);
                 console.log("Mouse has been released for point to be added to map");
+
+                if (window.innerWidth < 700){
+                    resizeMenu.expand();
+                    console.log("expanding menu!");
+                }
             }
 
 
