@@ -8,6 +8,11 @@ body {
     margin: 0;
 }
 
+h4 {
+    display: inline;
+    font-size: 1.2em;
+}
+
 #map {
     height: 100%;
     width: 100vw;
@@ -22,6 +27,16 @@ body {
     cursor: pointer;
 }
 
+.popup-span-text{
+    display: block;
+}
+
+/* center the map incon inside of the menu */
+#select-map-location{
+    margin-left: 75px;
+    margin-right: 75px;
+}
+
 /* back arrow inside of the search menu */
 .back-arrow, #expand-hamburger {
     cursor: pointer;
@@ -31,6 +46,16 @@ body {
 .navbar {
     background-color: #007E00;
     overflow: auto;
+    align-content: baseline;
+}
+
+a.nav-link {
+    color : dimgrey;
+}
+
+a.nav-link.active{
+    font-weight: bold;
+    color : black;
 }
 
 .expanded-navbar {
@@ -62,6 +87,15 @@ body {
 
 input[type="text"]{
     width: 194px;
+}
+
+#comment-submit-form label {
+    margin-bottom: 0px;
+    margin-top: 9px;
+}
+
+#commentcontent, #trailcontent {
+    width: 240px;
 }
 
 .radi-elements, .navbar, leaflet-control {

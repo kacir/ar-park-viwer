@@ -44,7 +44,9 @@ var hightlightStyle = {stroke : true,
     opacity: 1};
 var highlightLayer = L.geoJSON(null, {style : hightlightStyle ,
     onEachFeature : function(feature, layer){
-        var popupText = "Searched Trail: " + feature.properties.name + "</br>" + "Trail Surface is " + feature.properties.material + ", Trail use is " + feature.properties.design_cat;
+        var popupText = "<span class='popup-span-text'>Searched Trail: " + feature.properties.name +
+            "</span><span class='popup-span-text'>" + "Trail Surface is: " + feature.properties.material +
+            "</span><span class='popup-span-text'> Trail use is: " + feature.properties.design_cat + "</span>";
         layer.bindPopup(popupText);
     }});
 var commentPointCharacteristics = {latlng : null, layer : null};
@@ -79,11 +81,27 @@ $.ajax({url : "/menu.html" , success : function(data){
             $(".navbar").addClass("expanded-navbar");
             $(".navbar").removeClass("constrained-navbar");
 
+            resizeMenu.setTabContentSize();
+        };
+
+        resizeMenu.setTabContentSize = function(){
             if ($("#trailtab").hasClass("active") && $("#trail-search-form").hasClass("hidden")){
-                $(".navbar").height(window.innerHeight * 0.9);
+                if (window.innerHeight -200 > $("#trailcontent").innerHeight()){
+                    $(".navbar").removeAttr("style");
+                } else {
+                    $(".navbar").height(window.innerHeight * 0.9);
+                };
             }
 
+            if($("#commenttab").hasClass("active")){
+                if (window.innerHeight -200 > $("#commentcontent").innerHeight()){
+                    $(".navbar").removeAttr("style");
+                } else {
+                    $(".navbar").height(window.innerHeight * 0.9);
+                };
+            };
         };
+
         resizeMenu.close = function(){
             $(".nav-tabs , #close-button , #myTabContent").addClass("hidden");
             $("#expand-hamburger").removeClass("hidden");
@@ -96,7 +114,11 @@ $.ajax({url : "/menu.html" , success : function(data){
         $("#close-button").click(resizeMenu.close);
         $("#expand-hamburger").click(resizeMenu.expand);
         $("#commenttab").click(function(){
-            $(".navbar").removeAttr("style");
+            resizeMenu.setTabContentSize();
+        });
+
+        $("body").on( "mousemove, click" , function(){
+            resizeMenu.setTabContentSize();
         });
 
         resizeMenu.autoResize = function(){
@@ -118,13 +140,16 @@ $.ajax({url : "/menu.html" , success : function(data){
         $("#backarrow").click(function(){
             $("#trail-search-form").removeClass("hidden");
             $("#trail-search-results").addClass("hidden");
+            d3.select("#trail-results-table").html("");
             map.removeLayer(highlightLayer);
             $(".navbar").removeAttr("style");
+            resizeMenu.setTabContentSize();
         });
 
         $("#backarrow2").click(function(){
             $("#comment-submit-form").removeClass("hidden");
             $("#comment-submit-feedback").addClass("hidden");
+            resizeMenu.setTabContentSize();
         });
 
         //bind a function to the element so it will ask for query from the backend
@@ -145,7 +170,7 @@ $.ajax({url : "/menu.html" , success : function(data){
                     console.log("trail data from backend is");
                     console.log(traildata);
 
-                    var table = d3.select("table");
+                    var table = d3.select("#trail-results-table");
                     table.html("");
                     table.append("tr").html("<th>Trail Name</th><th>Allowed USe</th> <th>Surface</th>");
                     table.selectAll(".trailitem")
@@ -162,7 +187,7 @@ $.ajax({url : "/menu.html" , success : function(data){
 
                     $("#trail-search-form").addClass("hidden");
                     $("#trail-search-results").removeClass("hidden");
-                    $(".navbar").height(window.innerHeight * 0.9);
+                    resizeMenu.setTabContentSize();
 
 
                 }
@@ -231,6 +256,7 @@ $.ajax({url : "/menu.html" , success : function(data){
                 //change the interface to show the thank you message
                 $("#comment-submit-form").addClass("hidden");
                 $("#comment-submit-feedback").removeClass("hidden");
+                resizeMenu.setTabContentSize();
             }
 
 
@@ -372,7 +398,7 @@ $.ajax({url : "/getgeometry?layer_name=bridge" , success : function(data){
 
 //hiking trail
 var hikingLayer = L.geoJSON(null, {onEachFeature : function(feature, layer){
-        var popupText =  "Hiking Trail " + feature.properties.name + ", Trail surface is " + feature.properties.material;
+        var popupText =  "<span class='popup-span-text'>Type: Hiking Trail </span><span class='popup-span-text'>Trail Name: " + feature.properties.name + "</span> <span class='popup-span-text'>Trail surface: " + feature.properties.material + "</span>";
         layer.bindPopup(popupText);
     }, style :
         {stroke : true,
@@ -393,7 +419,7 @@ $.ajax({url : "/getgeometry?layer_name=foot" ,
 
 //mtb trail
 var mtbTrailLayer = L.geoJSON(null, {onEachFeature : function(feature, layer){
-        var popupText =  "Bike Trail " + feature.properties.name + ", Trail surface is " + feature.properties.material;
+        var popupText =  "<span class='popup-span-text'>Type: Bike Trail </span><span class='popup-span-text'>Trail Name: " + feature.properties.name + "</span> <span class='popup-span-text'>Trail surface: " + feature.properties.material + "</span>";
         layer.bindPopup(popupText);
     }, style :
         {stroke : true,
@@ -411,7 +437,7 @@ $.ajax({url : "/getgeometry?layer_name=bike", success : function(data){
 });
 
 var waterTrailsLayer = L.geoJSON(null, {onEachFeature : function(feature, layer){
-        var popupText =  "Water Trail " + feature.properties.name;
+        var popupText =  "<span class='popup-span-text'>Type: Water Trail </span><span class='popup-span-text'>Trail Name: " + feature.properties.name + "</span>";
         layer.bindPopup(popupText);
     }, style :
         {stroke : true,
