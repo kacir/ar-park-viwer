@@ -66,7 +66,7 @@ a.nav-link.active{
     width: 60px;
 }
 
-#close-button{
+#close-button, .park-info{
     cursor: pointer;
 }
 
@@ -102,10 +102,16 @@ input[type="text"]{
     border-radius: 7px;
 }
 
+.park-info.expanded{
+    width: 250px;
+    height: 350px;
+    padding: 15px;
+}
+
 
 
 /*matches the sizes for each of the side icons in the order of locate, home extent, layer list*/
-div.leaflet-control-locate  .leaflet-bar-part, .leaflet-control img[src="img/home.svg"], .leaflet-control-layers a.leaflet-control-layers-toggle {
+div.leaflet-control-locate  .leaflet-bar-part, .leaflet-control img[src="img/home.svg"], .leaflet-control-layers a.leaflet-control-layers-toggle, .park-info {
     width: 50px;
     height: 50px;
     border-radius: 7px;

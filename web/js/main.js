@@ -588,3 +588,24 @@ mtbTrailheadLayer.addTo(map);
 trailheadLayer.addTo(map);
 blackoutLayer.addTo(map);
 parkBoundaryLayer.addTo(map);
+
+var parkInfoControl = L.control();
+parkInfoControl.onAdd = function(map){
+    this._div = L.DomUtil.create('div', 'park-info'); // create a div with a class "info"
+    this.update();
+    return this._div;
+};
+parkInfoControl.update = function(props){
+    this._div.innerHTML = "<img title='Park Information' src='img/info.svg'></img><div class='park-info-content hidden'><a href='https://www.arkansasstateparks.com/'><h4>Pinnacle Mountain State Park</h4></a><p>Just west of Arkansas’s capital city of Little Rock, Pinnacle Mountain stands as the centerpiece of this geographically diverse state park. This day-use park offers a variety of outdoor adventure on the Big and Little Maumelle Rivers, in the Arkansas Arboretum, and along over 15 miles of trails including 7 miles of challenging mountain bike trails. Hike to the top, explore the rivers, or take in one of the many interpretive programs offered by park staff. Visit the park visitor center, enjoy a picnic, or reserve a pavilion for a larger gathering.</p><a href='https://www.arkansasstateparks.com/'><p>Click Here for more information</p></a></div>";
+};
+parkInfoControl.addTo(map);
+$(".park-info").on("click mouseover", function(){
+    $(".park-info").addClass("expanded");
+    $(".park-info-content").removeClass("hidden");
+    $(".park-info img").addClass("hidden");
+});
+$(".park-info").on("mouseout", function(){
+    $(".park-info").removeClass("expanded");
+    $(".park-info-content").addClass("hidden");
+    $(".park-info img").removeClass("hidden");
+});
