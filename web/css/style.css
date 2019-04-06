@@ -104,10 +104,23 @@ input[type="text"]{
 
 .park-info.expanded{
     width: 250px;
-    height: 350px;
+    height: 400px;
     padding: 15px;
 }
 
+.trail-search-subheader {
+    font-weight: bold;
+}
+
+#information-icon{
+    width : 50px;
+}
+
+.park-info-content {
+    background-color : #C1FCA5;
+    padding:5px;
+    border-radius: 7px;
+}
 
 
 /*matches the sizes for each of the side icons in the order of locate, home extent, layer list*/

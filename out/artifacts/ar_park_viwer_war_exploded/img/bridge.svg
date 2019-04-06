@@ -1,15 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 23.0.2, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 width="4096px" height="5120px" viewBox="0 0 4096 5120" style="enable-background:new 0 0 4096 5120;" xml:space="preserve">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="4096" height="5120" style="enable-background:new 0 0 4096 5120;" xml:space="preserve"><rect id="backgroundrect" width="100%" height="100%" x="0" y="0" fill="none" stroke="none"/>
 <style type="text/css">
 	.st0{fill:#FFFFFF;stroke:#000000;stroke-width:16.009;stroke-miterlimit:10;}
 </style>
-<circle class="st0" cx="2018.1" cy="2378.2" r="1883.1"/>
-<g transform="translate(0.000000,4096.000000) scale(0.100000,-0.100000)">
-	<path d="M6330.4,17375.1V9610.7l1969.1,5.3l1966.4,8l16,600.3c58.7,2033.1,651,3900.9,1774.3,5597.8
-		c1459.5,2198.6,3724.8,3799.5,6278.2,4434.5c952.5,237.5,1536.9,306.8,2604.1,306.8c885.8,0,1243.4-32,1953.1-162.8
-		c3580.7-659,6593-3124.4,7953.8-6507.6c344.2-856.5,571-1726.3,683.1-2628.1c48-370.9,96.1-1093.9,96.1-1432.8v-221.5h1961.1
-		h1961.1V17375v7764.3H20938.6H6330.4V17375.1z"/>
-</g>
-</svg>
+
+
+<g class="currentLayer" style=""><title>Layer 1</title><path fill="#C7B299" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-dasharray="none" stroke-linejoin="miter" stroke-linecap="butt" stroke-dashoffset="" fill-rule="nonzero" opacity="1" marker-start="" marker-mid="" marker-end="" d="M-59.535552978515625,2448.7114181518555 C-59.535552978515625,1304.5125231242312 867.0417950877827,377.71141815185547 2010.9644470214844,377.71141815185547 C3154.887098955186,377.71141815185547 4081.4644470214844,1304.5125231242312 4081.4644470214844,2448.7114181518555 C4081.4644470214844,3592.91031317948 3154.887098955186,4519.7114181518555 2010.9644470214844,4519.7114181518555 C867.0417950877827,4519.7114181518555 -59.535552978515625,3592.91031317948 -59.535552978515625,2448.7114181518555 z" id="svg_4" class=""/><g transform="translate(0,4096) scale(0.10000000149011612,-0.10000000149011612) " id="svg_2" class="" fill-opacity="1" fill="#8C6239" stroke="#000000" stroke-opacity="1" stroke-width="3" stroke-dasharray="2,2">
+	<path d="M6330.4,17375.1V9610.7l1969.1,5.3l1966.4,8l16,600.3c58.7,2033.1,651,3900.9,1774.3,5597.8   c1459.5,2198.6,3724.8,3799.5,6278.2,4434.5c952.5,237.5,1536.9,306.8,2604.1,306.8c885.8,0,1243.4-32,1953.1-162.8   c3580.7-659,6593-3124.4,7953.8-6507.6c344.2-856.5,571-1726.3,683.1-2628.1c48-370.9,96.1-1093.9,96.1-1432.8v-221.5h1961.1   h1961.1V17375v7764.3H20938.6H6330.4V17375.1z" id="svg_3" fill="#7a5201" stroke="#000000" stroke-opacity="1" stroke-width="3" stroke-dasharray="2,2"/>
+</g></g></svg>
