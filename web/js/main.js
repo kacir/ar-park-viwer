@@ -242,7 +242,10 @@ $.ajax({url : "/menu.html" , success : function(data){
             //release mouse event https://api.jquery.com/mouseup/
             //https://www.w3schools.com/cssref/pr_class_cursor.asp with URL modifyer
 
-
+            if (commentPointCharacteristics.layer === null){
+                alert("Location info has not been filled in");
+                return null;
+            }
             var commentData = {};
             commentData.lat = commentPointCharacteristics.layer.getLatLng().lat;
             commentData.lng = commentPointCharacteristics.layer.getLatLng().lng;
@@ -254,12 +257,14 @@ $.ajax({url : "/menu.html" , success : function(data){
             console.log("submit comment button clicked");
             console.log("location value is: " + commentData.commentlocation);
 
-            if (commentPointCharacteristics.layer == null){
-                alert("Location info has not been filled in");
-            } else if (commentData.rate == ""){
+            if (commentData.rate == ""){
                 alert("Rating has not been filled in");
             } else if (isNaN(commentData.rate)){
                 alert("Rating is not a number");
+            } else if (commentData.rate > 10) {
+                alert("Rating can't be greater than 10");
+            } else if (commentData.rate < 1){
+                alert("rating can't be smaller than 1");
             } else {
                 //make a proper post request to the backend
                 $.post("/submitcomment" , commentData, function(callbackData, status){
@@ -272,6 +277,8 @@ $.ajax({url : "/menu.html" , success : function(data){
                 $("#comment-submit-form").addClass("hidden");
                 $("#comment-submit-feedback").removeClass("hidden");
                 resizeMenu.setTabContentSize();
+                map.removeLayer(commentPointCharacteristics.layer);
+                commentPointCharacteristics.layer = null;
             }
 
 
@@ -296,7 +303,7 @@ var commentsLayer = L.geoJSON(null, {
         var trailMarker = L.marker(latlng, {icon : commentIcon});
         return trailMarker;
     }, onEachFeature : function(feature, layer){
-        var popupText = "Comment <br> Rating: " + feature.properties.rate + " Detailed Comment :" + feature.properties.explain;
+        var popupText = "<span class='popup-span-text'>Comment</span><span class='popup-span-text'> Rating: " + feature.properties.rate + "</span> <span class='popup-span-text'> Detailed Comment :" + feature.properties.explain + "</span>";
         console.log("comment popup text, With Victory");
         console.log(popupText);
         layer.bindPopup(popupText);
@@ -596,7 +603,7 @@ parkInfoControl.onAdd = function(map){
     return this._div;
 };
 parkInfoControl.update = function(props){
-    this._div.innerHTML = "<img id='information-icon' title='Park Information' src='img/info.svg'></img><div class='park-info-content hidden'><a href='https://www.arkansasstateparks.com/'><h4>Pinnacle Mountain State Park</h4></a><p>Just west of Arkansas’s capital city of Little Rock, Pinnacle Mountain stands as the centerpiece of this geographically diverse state park. This day-use park offers a variety of outdoor adventure on the Big and Little Maumelle Rivers, in the Arkansas Arboretum, and along over 15 miles of trails including 7 miles of challenging mountain bike trails. Hike to the top, explore the rivers, or take in one of the many interpretive programs offered by park staff. Visit the park visitor center, enjoy a picnic, or reserve a pavilion for a larger gathering.</p><a href='https://www.arkansasstateparks.com/'><p>Click Here for more information</p></a></div>";
+    this._div.innerHTML = "<img id='information-icon' title='Park Information' src='img/info.svg'></img><div class='park-info-content hidden'><a target='_blank' href='https://www.arkansasstateparks.com/'><h4>Pinnacle Mountain State Park</h4></a><p>Just west of Arkansas’s capital city of Little Rock, Pinnacle Mountain stands as the centerpiece of this geographically diverse state park. This day-use park offers a variety of outdoor adventure on the Big and Little Maumelle Rivers, in the Arkansas Arboretum, and along over 15 miles of trails including 7 miles of challenging mountain bike trails. Hike to the top, explore the rivers, or take in one of the many interpretive programs offered by park staff. Visit the park visitor center, enjoy a picnic, or reserve a pavilion for a larger gathering.</p><a target='_blank' href='https://www.arkansasstateparks.com/'><p>Click Here for more information</p></a></div>";
 };
 parkInfoControl.addTo(map);
 $(".park-info").on("click mouseover", function(){
